@@ -2,6 +2,5 @@
 //npm install -g eslint
 
 import './styles.css';
-import '../dropdown_module';
-
-// dropdown_process();
+import 'dropdown_iife';
+// import '../dropdown_module';
