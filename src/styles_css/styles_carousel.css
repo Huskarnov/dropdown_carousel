@@ -1,0 +1,38 @@
+.carousel {
+  margin-top: 100px;
+  /* background-color: rebeccapurple; */
+  overflow: hidden;
+}
+.carousel .sliders {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  height: 500px;
+  /* transition: 2s ease infinite; */
+  /* transition-timing-function: ease; */
+}
+
+.carousel .sliders img {
+  width: 600px;
+  object-fit: cover;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+.carousel .sliders img:hover {
+  filter: brightness(1.2);
+}
+.carousel_navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.carousel_navigation li {
+  list-style-type: none;
+  font-size: 2rem;
+  color: black;
+}
+.carousel_arrow {
+  font-size: 4rem;
+}

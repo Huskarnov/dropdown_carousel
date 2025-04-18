@@ -143,15 +143,3 @@ main {
 /* /////////////////////////////////////////////////////// */
 /* carousel navigation */
 /* /////////////////////////////////////////////////////// */
-.carousel {
-  margin-top: 100px;
-}
-.carousel_navigation {
-  display: flex;
-  gap: 10px;
-}
-.carousel_navigation li {
-  list-style-type: none;
-  font-size: 2rem;
-  color: black;
-}
