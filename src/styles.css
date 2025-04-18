@@ -81,6 +81,14 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
+/* ---------------------------------------------------------- */
 /* ---------------------------------------------------------- */
 
 header {
@@ -131,4 +139,19 @@ main {
 
 .dropdown_menu a:hover {
   background-color: bisque;
+}
+/* /////////////////////////////////////////////////////// */
+/* carousel navigation */
+/* /////////////////////////////////////////////////////// */
+.carousel {
+  margin-top: 100px;
+}
+.carousel_navigation {
+  display: flex;
+  gap: 10px;
+}
+.carousel_navigation li {
+  list-style-type: none;
+  font-size: 2rem;
+  color: black;
 }

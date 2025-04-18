@@ -3,4 +3,7 @@
 
 import './styles.css';
 import 'dropdown_iife';
+import { fillCarousel } from './modules/carousel_module';
 // import '../dropdown_module';
+
+fillCarousel();
