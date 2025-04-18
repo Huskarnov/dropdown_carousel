@@ -23,6 +23,12 @@ const sliders_list = [
   const arrow_left = document.querySelector('#arrow_left');
   const arrow_right = document.querySelector('#arrow_right');
 
+  carousel.move = true;
+  let currentPosition = 0;
+
+  let previousChildRank;
+  let childRank = 3;
+
   //Fill the carousel with images
   function generateImage(slide) {
     const image = document.createElement('img');
@@ -42,9 +48,7 @@ const sliders_list = [
     });
   }
 
-  //sliders element default movement
-  carousel.move = true;
-  let currentPosition = 0;
+  //sliders movement
 
   carousel.addEventListener('mouseover', () => {
     carousel.move = false;
@@ -53,33 +57,83 @@ const sliders_list = [
     carousel.move = true;
   });
 
-  arrow_left.addEventListener('click', (event) => {
+  arrow_right.addEventListener('click', (event) => {
     event.preventDefault();
     moveToLeft();
   });
-  arrow_right.addEventListener('click', (event) => {
+  arrow_left.addEventListener('click', (event) => {
     event.preventDefault();
     moveToRigh();
   });
-
-  // setInterval(() => {
-  //   if (carousel.move === true) {
-  //     moveToLeft();
-  //   }
-  // }, 1000);
 
   function moveToLeft() {
     if (currentPosition >= -615) {
       currentPosition -= 615;
       sliders.style.transform = `translate(${currentPosition}px)`;
+      highlightCurrentImageAndNavDot();
     }
   }
   function moveToRigh() {
     if (currentPosition <= 615) {
       currentPosition += 615;
       sliders.style.transform = `translate(${currentPosition}px)`;
+      highlightCurrentImageAndNavDot();
     }
   }
 
+  function highlightCurrentImageAndNavDot() {
+    previousChildRank = childRank;
+
+    switch (currentPosition) {
+      case 0:
+        childRank = 3;
+        break;
+      case -615:
+        childRank = 4;
+        break;
+      case -1230:
+        childRank = 5;
+        break;
+      case 615:
+        childRank = 2;
+        break;
+      case 1230:
+        childRank = 1;
+        break;
+    }
+
+    const currentImage = document.querySelector(
+      `.sliders > img:nth-Child(${childRank})`
+    );
+    currentImage.style.borderColor = 'red';
+
+    const currentDot = document.querySelector(
+      `.navDots > li:nth-Child(${childRank}) > a`
+    );
+    currentDot.style.fontSize = '3rem';
+    currentDot.style.color = 'red';
+
+    if (previousChildRank !== childRank) {
+      const previousImage = document.querySelector(
+        `.sliders > img:nth-Child(${previousChildRank})`
+      );
+      previousImage.style.borderColor = 'black';
+
+      const previousDot = document.querySelector(
+        `.navDots > li:nth-Child(${previousChildRank}) > a`
+      );
+      previousDot.style.fontSize = '2rem';
+      previousDot.style.color = 'black';
+    }
+  }
+
+  //executions
+  setInterval(() => {
+    if (carousel.move === true) {
+      moveToLeft();
+    }
+  }, 3000);
+
   fillCarousel();
+  highlightCurrentImageAndNavDot();
 })();

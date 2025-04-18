@@ -9,7 +9,7 @@
   justify-content: center;
   gap: 15px;
   height: 500px;
-  /* transition: 2s ease infinite; */
+  transition: 1s ease;
   /* transition-timing-function: ease; */
 }
 
@@ -19,6 +19,9 @@
   border: 5px solid black;
   border-radius: 10px;
 }
+.carousel .sliders img:nth-child(3) {
+  border-color: red;
+}
 .carousel .sliders img:hover {
   filter: brightness(1.2);
 }
@@ -26,12 +29,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+}
+.navDots {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 .carousel_navigation li {
   list-style-type: none;
   font-size: 2rem;
-  color: black;
 }
 .carousel_arrow {
   font-size: 4rem;
