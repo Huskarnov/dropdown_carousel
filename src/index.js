@@ -5,5 +5,6 @@ import './styles_css/styles.css';
 import './styles_css/styles_carousel.css';
 
 import 'dropdown_iife';
-import './modules/carousel_module';
+// import './modules/carousel_module_translate';
+import './modules/carousel_module_rotate';
 // import '../dropdown_module';

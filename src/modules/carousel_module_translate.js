@@ -52,16 +52,29 @@ const sliders_list = [
 
   //sliders movement and navigation
 
-  const navDotsNodeList = document.querySelector('.navDots').children;
-  const navDotsArray = Array.from(navDotsNodeList);
-  navDotsArray.forEach((navDot, index) => {
-    navDot.addEventListener('click', (event) => {
-      event.preventDefault();
-      currentPosition = 1230 - 615 * index;
-      moveSliders();
-      highlightCurrentImageAndNavDot();
+  function allocateImageAndNavDotsClickEvents() {
+    const navDotsNodeList = document.querySelector('.navDots').children;
+    const navDotsArray = Array.from(navDotsNodeList);
+    navDotsArray.forEach((navDot, index) => {
+      navDot.addEventListener('click', (event) => {
+        event.preventDefault();
+        currentPosition = 1230 - 615 * index;
+        moveSliders();
+        highlightCurrentImageAndNavDot();
+      });
     });
-  });
+
+    const slidersNodeList = sliders.children;
+    const slidersArray = Array.from(slidersNodeList);
+    slidersArray.forEach((image, index) => {
+      image.addEventListener('click', (event) => {
+        event.preventDefault();
+        currentPosition = 1230 - 615 * index;
+        moveSliders();
+        highlightCurrentImageAndNavDot();
+      });
+    });
+  }
 
   carousel.addEventListener('mouseover', () => {
     carousel.move = false;
@@ -158,5 +171,6 @@ const sliders_list = [
   // sliders.style.transform = `translate(${currentPosition}px)`;
   fillCarousel();
   highlightCurrentImageAndNavDot();
+  allocateImageAndNavDotsClickEvents();
   sliders.classList.add('transition_ease');
 })();

@@ -2,6 +2,7 @@
   margin-top: 100px;
   /* background-color: rebeccapurple; */
   overflow: hidden;
+  background-color: rebeccapurple;
 }
 .carousel .sliders {
   position: relative;
