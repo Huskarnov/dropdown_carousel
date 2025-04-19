@@ -162,6 +162,7 @@ const sliders_list = [
   }
 
   //executions
+
   let angle = 0;
   setInterval(() => {
     if (carousel.move === true) {

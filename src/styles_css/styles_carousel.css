@@ -2,25 +2,29 @@
   margin-top: 100px;
   /* background-color: rebeccapurple; */
   overflow: hidden;
-  background-color: rebeccapurple;
 }
-.carousel .sliders {
+.sliders {
   position: relative;
   display: flex;
   justify-content: center;
   gap: 15px;
   height: 500px;
+
+  /* transform: rotateX(20deg); */
 }
 .transition_ease {
   transition: 1s ease;
 }
 
-.carousel .sliders img {
+.sliders img {
   width: 600px;
   object-fit: cover;
   border: 5px solid black;
   border-radius: 10px;
 }
+/* ----------------------------------------------------------- */
+
+/* ----------------------------------------------------------- */
 .carousel .sliders img:nth-child(3) {
   border-color: red;
 }
