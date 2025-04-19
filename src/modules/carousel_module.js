@@ -15,7 +15,9 @@ const sliders_list = [
     image_url: 'https://i.ibb.co/Cp92LjMr/istockphoto-2171497774-1024x1024.jpg',
   },
 ];
-
+// /////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////////////////////
 (function () {
   //Define elements
   const carousel = document.querySelector('.carousel');
@@ -48,7 +50,18 @@ const sliders_list = [
     });
   }
 
-  //sliders movement
+  //sliders movement and navigation
+
+  const navDotsNodeList = document.querySelector('.navDots').children;
+  const navDotsArray = Array.from(navDotsNodeList);
+  navDotsArray.forEach((navDot, index) => {
+    navDot.addEventListener('click', (event) => {
+      event.preventDefault();
+      currentPosition = 1230 - 615 * index;
+      moveSliders();
+      highlightCurrentImageAndNavDot();
+    });
+  });
 
   carousel.addEventListener('mouseover', () => {
     carousel.move = false;
@@ -66,19 +79,27 @@ const sliders_list = [
     moveToRigh();
   });
 
+  function moveSliders() {
+    sliders.style.transform = `translate(${currentPosition}px)`;
+  }
+
   function moveToLeft() {
-    if (currentPosition >= -615) {
+    if (currentPosition > -1230) {
       currentPosition -= 615;
-      sliders.style.transform = `translate(${currentPosition}px)`;
-      highlightCurrentImageAndNavDot();
+    } else {
+      currentPosition = 1230;
     }
+    moveSliders();
+    highlightCurrentImageAndNavDot();
   }
   function moveToRigh() {
-    if (currentPosition <= 615) {
+    if (currentPosition < 1230) {
       currentPosition += 615;
-      sliders.style.transform = `translate(${currentPosition}px)`;
-      highlightCurrentImageAndNavDot();
+    } else {
+      currentPosition = -1230;
     }
+    moveSliders();
+    highlightCurrentImageAndNavDot();
   }
 
   function highlightCurrentImageAndNavDot() {
@@ -132,8 +153,10 @@ const sliders_list = [
     if (carousel.move === true) {
       moveToLeft();
     }
-  }, 3000);
+  }, 5000);
 
+  // sliders.style.transform = `translate(${currentPosition}px)`;
   fillCarousel();
   highlightCurrentImageAndNavDot();
+  sliders.classList.add('transition_ease');
 })();
